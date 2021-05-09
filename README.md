@@ -18,7 +18,7 @@ Visualize the corresponding KeyCloak.X-Preview Quarkus MicroProfile metrics from
 
 ## Contribution
 
-If you would like to contribute a sample script [here](examples), have an improvement request, or want to make a change inside the code, please open a pull request.
+If you would like to contribute, have an improvement request, or want to make a change inside the code, please open a pull request.
 
 ## Support
 
