@@ -7,6 +7,9 @@ Includes a [KeyCloak.X-Preview](https://www.keycloak.org/2020/12/first-keycloak-
 
 Visualize the corresponding KeyCloak.X-Preview Quarkus MicroProfile metrics from the selected Grafana data source.
 
+## Grafana Dashboard
+[KeyCloak X Grafana Dashboard](https://grafana.com/grafana/dashboards/14390)
+
 ## Images
 
 ### Base metrics
