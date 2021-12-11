@@ -1,7 +1,7 @@
 # keycloak.X-grafana-dashboard
 
 ## Description
-Includes a [KeyCloak.X-Preview](https://www.keycloak.org/2020/12/first-keycloak-x-release.adoc) Grafana dashboard to display the Quarkus MicroProfile metrics
+Includes a [KeyCloak.X-Preview](https://www.keycloak.org/2020/12/first-keycloak-x-release.adoc) Grafana dashboard to display the Quarkus MicroProfile metrics. The version 2 of the dashboard includes a switch of the Grafana graph to the timeseries type.
 
 ## Functionality
 
@@ -25,7 +25,7 @@ If you would like to contribute, have an improvement request, or want to make a 
 
 ## Support
 
-If you need support or you encounter a bug, please don't hesitate to open an issue.
+If you need support, or you encounter a bug, please don't hesitate to open an issue.
 
 ## Donations
 
