@@ -1,23 +1,27 @@
-# keycloak.X-grafana-dashboard
+# keycloak Grafana Dashboard
 
 ## Description
-Includes a [KeyCloak.X-Preview](https://www.keycloak.org/2020/12/first-keycloak-x-release.adoc) Grafana dashboard to display the Quarkus MicroProfile metrics. Version 2 of the dashboard includes a switch of the Grafana graph to the time-series type.
+Includes a [KeyCloak](https://www.keycloak.org/) Grafana dashboard to display the Quarkus MicroProfile metrics.
 
 ## Functionality
 
-Visualize the corresponding KeyCloak.X-Preview Quarkus MicroProfile metrics from the selected Grafana data source.
+Visualize the corresponding KeyCloak Quarkus MicroProfile metrics from the selected Grafana data source.
 
 ## Grafana Dashboard
-[KeyCloak X Grafana Dashboard](https://grafana.com/grafana/dashboards/14390)
+[KeyCloak Grafana Dashboard](https://grafana.com/grafana/dashboards/14390)
+
+## Changelog
+- Version 1: Initialization of the first version of the Quarkus-based Keycloak dashboard
+- Version 2: The dashboard version includes a switch of the Grafana graph to the time-series type
+- Version 3: Adjust the dashboard to support the Keycloak version 25 metrics
 
 ## Images
 
 ### Base metrics
-![KeyCloak_X_Base_Metrics](./images/KeyCloak_X_Base_Metrics.jpeg)
+![KeyCloak_Base_Metrics](./images/KeyCloak_Base_Metrics.jpeg)
 
 ### Vendor metrics
-![KeyCloak_X_Vendor_Metrics_1](./images/KeyCloak_X_Vendor_Metrics_1.jpeg)
-![KeyCloak_X_Vendor_Metrics_2](./images/KeyCloak_X_Vendor_Metrics_2.jpeg)
+![KeyCloak_Vendor_Metrics_1](./images/KeyCloak_Vendor_Metrics.jpeg)
 
 ## Contribution
 
