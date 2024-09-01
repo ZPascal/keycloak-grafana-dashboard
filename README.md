@@ -1,4 +1,4 @@
-# keycloak Grafana Dashboard
+# Keycloak Grafana Dashboard
 
 ## Description
 Includes a [KeyCloak](https://www.keycloak.org/) Grafana dashboard to display the Quarkus MicroProfile metrics.
