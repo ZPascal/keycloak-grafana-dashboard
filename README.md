@@ -1,6 +1,7 @@
 # Keycloak Grafana Dashboard
 
 ## Description
+
 Includes a [KeyCloak](https://www.keycloak.org/) Grafana dashboard to display the Quarkus MicroProfile metrics.
 
 ## Functionality
@@ -8,6 +9,7 @@ Includes a [KeyCloak](https://www.keycloak.org/) Grafana dashboard to display th
 Visualize the corresponding KeyCloak Quarkus MicroProfile metrics from the selected Grafana data source.
 
 ## Grafana Dashboard
+
 [KeyCloak Grafana Dashboard](https://grafana.com/grafana/dashboards/14390)
 
 ## Changelog
