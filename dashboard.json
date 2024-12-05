@@ -3329,8 +3329,8 @@
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "KeyCloak MicroProfile Metrics",
-  "uid": null,
+  "title": "Keycloak",
+  "uid": "keycloak",
   "version": 4,
   "weekStart": ""
 }
