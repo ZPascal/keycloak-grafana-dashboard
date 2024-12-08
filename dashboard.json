@@ -3329,7 +3329,7 @@
   "timepicker": {},
   "timezone": "browser",
   "title": "KeyCloak Metrics",
-  "uid": null,
+  "uid":  "keycloak",
   "version": 6,
   "weekStart": ""
 }
