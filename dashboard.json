@@ -3330,6 +3330,6 @@
   "timezone": "browser",
   "title": "KeyCloak Metrics",
   "uid": null,
-  "version": 5,
+  "version": 6,
   "weekStart": ""
 }
