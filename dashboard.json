@@ -3284,8 +3284,7 @@
       {
         "current": {},
         "datasource": {
-          "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "$PROMETHEUS_DS"
         },
         "definition": "label_values(base_thread_count,job)",
         "includeAll": false,
