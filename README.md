@@ -18,6 +18,7 @@ Visualize the corresponding KeyCloak Quarkus MicroProfile metrics from the selec
 - Version 3: Adjust the dashboard to support the Keycloak version 25 metrics
 - Version 4: Adjust the dashboard to shrink down the Grafana dashboard file
 - Version 5: Adjust the dashboard data source variable name
+- Version 6: Adjust the dashboard name
 
 ## Images
 

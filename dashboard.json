@@ -3328,8 +3328,8 @@
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "KeyCloak MicroProfile Metrics",
+  "title": "KeyCloak Metrics",
   "uid": null,
-  "version": 5,
+  "version": 6,
   "weekStart": ""
 }
