@@ -1401,7 +1401,7 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "base_thread_count{job=\"$job\",instance=~\"$instance\"}",
+          "expr": "jvm_threads_live_threads{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
@@ -3286,14 +3286,14 @@
         "datasource": {
           "uid": "$PROMETHEUS_DS"
         },
-        "definition": "label_values(base_thread_count,job)",
+        "definition": "label_values(jvm_threads_live_threads,job)",
         "includeAll": false,
         "label": "Source of metrics",
         "name": "job",
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(base_thread_count,job)",
+          "query": "label_values(jvm_threads_live_threads,job)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
@@ -3305,7 +3305,7 @@
         "datasource": {
           "uid": "$PROMETHEUS_DS"
         },
-        "definition": "label_values(base_thread_count{job=\"$job\"},instance)",
+        "definition": "label_values(jvm_threads_live_threads{job=\"$job\"},instance)",
         "includeAll": false,
         "label": "Host",
         "multi": true,
@@ -3313,7 +3313,7 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(base_thread_count{job=\"$job\"},instance)",
+          "query": "label_values(jvm_threads_live_threads{job=\"$job\"},instance)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 2,
