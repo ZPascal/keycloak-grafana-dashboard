@@ -3301,12 +3301,20 @@
         "type": "query"
       },
       {
-        "current": {},
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
         "datasource": {
           "uid": "$PROMETHEUS_DS"
         },
         "definition": "label_values(jvm_threads_live_threads{job=\"$job\"},instance)",
-        "includeAll": false,
+        "includeAll": true,
         "label": "Host",
         "multi": true,
         "name": "instance",
