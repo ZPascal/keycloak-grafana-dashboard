@@ -431,7 +431,7 @@
         "type": "datasource",
         "uid": "-- Mixed --"
       },
-      "description": "Displays the time from the start of the Java virtual machine. On Keycloak 26+, process_uptime_seconds is used (returns seconds, displayed as ms — values appear 1000x smaller). On Keycloak <26, base_jvm_uptime is used (returns ms correctly).",
+      "description": "Displays the time from the start of the Java virtual machine.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -447,9 +447,34 @@
               }
             ]
           },
-          "unit": "ms"
+          "unit": "s"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "ms"
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 6,
@@ -482,12 +507,24 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "process_uptime_seconds{job=\"$job\",instance=~\"$instance\"} or base_jvm_uptime{job=\"$job\",instance=~\"$instance\"}",
+          "expr": "process_uptime_seconds{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
           "range": true,
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "uid": "$PROMETHEUS_DS"
+          },
+          "editorMode": "code",
+          "expr": "base_jvm_uptime{job=\"$job\",instance=~\"$instance\"}",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "{{job}}/{{instance}} ",
+          "range": true,
+          "refId": "B"
         }
       ],
       "title": "JVM Uptime",
