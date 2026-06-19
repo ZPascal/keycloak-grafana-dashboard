@@ -431,7 +431,7 @@
         "type": "datasource",
         "uid": "-- Mixed --"
       },
-      "description": "Displays the time from the start of the Java virtual machine in milliseconds.",
+      "description": "Displays the time from the start of the Java virtual machine in seconds.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1131,7 +1131,7 @@
           "expr": "sum by (job, instance) (jvm_gc_pause_seconds_count{job=\"$job\",instance=~\"$instance\"})",
           "format": "time_series",
           "intervalFactor": 2,
-          "legendFormat": "{{job}}/{{instance}} name={{name}}",
+          "legendFormat": "{{job}}/{{instance}} ",
           "range": true,
           "refId": "A"
         }
