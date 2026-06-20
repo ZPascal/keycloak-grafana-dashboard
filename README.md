@@ -2,11 +2,11 @@
 
 ## Description
 
-Includes a [KeyCloak](https://www.keycloak.org/) Grafana dashboard to display the Quarkus MicroProfile metrics.
+Includes a [KeyCloak](https://www.keycloak.org/) Grafana dashboard to display JVM and application metrics. Compatible with Keycloak 25 and earlier (MicroProfile/SmallRye `base_*` metrics) as well as Keycloak 26+ (Micrometer metrics).
 
 ## Functionality
 
-Visualize the corresponding KeyCloak Quarkus MicroProfile metrics from the selected Grafana data source.
+Visualize the corresponding KeyCloak metrics from the selected Grafana data source. The dashboard uses PromQL `or` fallbacks so it works transparently on both Keycloak <26 and Keycloak 26+ without any manual configuration.
 
 ## Grafana Dashboard
 
@@ -19,6 +19,8 @@ Visualize the corresponding KeyCloak Quarkus MicroProfile metrics from the selec
 - Version 4: Adjust the dashboard to shrink down the Grafana dashboard file
 - Version 5: Adjust the dashboard data source variable name
 - Version 6: Adjust the dashboard name
+- Version 7: Adapt the metrics and the descriptions
+- Version 8: Migrate to Micrometer metrics for Keycloak 26+ (virtual threads / JDK 21) && and add dual-query compatibility for Keycloak <26 and 26+ via PromQL `or` fallbacks
 
 ## Images
 

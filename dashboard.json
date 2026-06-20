@@ -137,7 +137,7 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "system_cpu_count{job=\"$job\",instance=~\"$instance\"}",
+          "expr": "system_cpu_count{job=\"$job\",instance=~\"$instance\"} or base_cpu_availableProcessors{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
@@ -277,7 +277,7 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "process_cpu_usage{job=\"$job\",instance=~\"$instance\"}",
+          "expr": "process_cpu_usage{job=\"$job\",instance=~\"$instance\"} or base_cpu_processCpuLoad{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
@@ -347,7 +347,7 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "system_load_average_1m{job=\"$job\",instance=~\"$instance\"}",
+          "expr": "system_load_average_1m{job=\"$job\",instance=~\"$instance\"} or base_cpu_systemLoadAverage{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
@@ -414,7 +414,7 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "process_cpu_time_ns_total{job=\"$job\",instance=~\"$instance\"}",
+          "expr": "process_cpu_time_ns_total{job=\"$job\",instance=~\"$instance\"} or base_cpu_processCpuTime{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
@@ -431,7 +431,7 @@
         "type": "datasource",
         "uid": "-- Mixed --"
       },
-      "description": "Displays the time from the start of the Java virtual machine in seconds.",
+      "description": "Displays the time from the start of the Java virtual machine.",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -449,7 +449,32 @@
           },
           "unit": "s"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "A"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byFrameRefID",
+              "options": "B"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "ms"
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 6,
@@ -488,6 +513,18 @@
           "legendFormat": "{{job}}/{{instance}} ",
           "range": true,
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "uid": "$PROMETHEUS_DS"
+          },
+          "editorMode": "code",
+          "expr": "base_jvm_uptime{job=\"$job\",instance=~\"$instance\"}",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "{{job}}/{{instance}} ",
+          "range": true,
+          "refId": "B"
         }
       ],
       "title": "JVM Uptime",
@@ -717,7 +754,7 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "sum by (job, instance) (jvm_memory_committed_bytes{job=\"$job\",instance=~\"$instance\",area=\"heap\"})",
+          "expr": "sum by (job, instance) (jvm_memory_committed_bytes{job=\"$job\",instance=~\"$instance\",area=\"heap\"}) or base_memory_committedHeap_bytes{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
@@ -820,7 +857,7 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "sum by (job, instance) (jvm_memory_max_bytes{job=\"$job\",instance=~\"$instance\",area=\"heap\"})",
+          "expr": "sum by (job, instance) (jvm_memory_max_bytes{job=\"$job\",instance=~\"$instance\",area=\"heap\"}) or base_memory_maxHeap_bytes{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
@@ -922,7 +959,7 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "jvm_classes_loaded_classes{job=\"$job\",instance=~\"$instance\"}",
+          "expr": "jvm_classes_loaded_classes{job=\"$job\",instance=~\"$instance\"} or base_classloader_loadedClasses_total{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
@@ -1026,7 +1063,7 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "sum by (job, instance) (jvm_memory_used_bytes{job=\"$job\",instance=~\"$instance\",area=\"heap\"})",
+          "expr": "sum by (job, instance) (jvm_memory_used_bytes{job=\"$job\",instance=~\"$instance\",area=\"heap\"}) or base_memory_usedHeap_bytes{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
@@ -1128,7 +1165,7 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "sum by (job, instance) (jvm_gc_pause_seconds_count{job=\"$job\",instance=~\"$instance\"})",
+          "expr": "sum by (job, instance) (jvm_gc_pause_seconds_count{job=\"$job\",instance=~\"$instance\"}) or base_gc_total{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
@@ -1229,7 +1266,7 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "jvm_classes_loaded_classes{job=\"$job\",instance=~\"$instance\"}",
+          "expr": "jvm_classes_loaded_classes{job=\"$job\",instance=~\"$instance\"} or base_classloader_loadedClasses_count{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
@@ -1331,7 +1368,7 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "jvm_classes_unloaded_classes_total{job=\"$job\",instance=~\"$instance\"}",
+          "expr": "jvm_classes_unloaded_classes_total{job=\"$job\",instance=~\"$instance\"} or base_classloader_unloadedClasses_total{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
@@ -1401,7 +1438,7 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "jvm_threads_live_threads{job=\"$job\",instance=~\"$instance\"}",
+          "expr": "jvm_threads_live_threads{job=\"$job\",instance=~\"$instance\"} or base_thread_count{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
@@ -1471,7 +1508,7 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "jvm_threads_daemon_threads{job=\"$job\",instance=~\"$instance\"}",
+          "expr": "jvm_threads_daemon_threads{job=\"$job\",instance=~\"$instance\"} or base_thread_daemon_count{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
@@ -1541,7 +1578,7 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "jvm_threads_peak_threads{job=\"$job\",instance=~\"$instance\"}",
+          "expr": "jvm_threads_peak_threads{job=\"$job\",instance=~\"$instance\"} or base_thread_max_count{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
@@ -1652,7 +1689,7 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "sum by (job, instance) (jvm_memory_committed_bytes{job=\"$job\",instance=~\"$instance\",area=\"nonheap\"})",
+          "expr": "sum by (job, instance) (jvm_memory_committed_bytes{job=\"$job\",instance=~\"$instance\",area=\"nonheap\"}) or base_memory_committedNonHeap_bytes{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
@@ -1945,7 +1982,7 @@
             "uid": "$PROMETHEUS_DS"
           },
           "editorMode": "code",
-          "expr": "jvm_memory_used_bytes{job=\"$job\",instance=~\"$instance\",id=\"Compressed Class Space\"}",
+          "expr": "jvm_memory_used_bytes{job=\"$job\",instance=~\"$instance\",id=\"Compressed Class Space\"} or vendor_memoryPool_Compressed_Class_Space_usage_bytes{job=\"$job\",instance=~\"$instance\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "{{job}}/{{instance}} ",
@@ -2049,6 +2086,18 @@
           "legendFormat": "{{job}}/{{instance}} ",
           "range": true,
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "uid": "$PROMETHEUS_DS"
+          },
+          "editorMode": "code",
+          "expr": "vendor_memoryPool_Compressed_Class_Space_usage_max_bytes{job=\"$job\",instance=~\"$instance\"}",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "{{job}}/{{instance}} ",
+          "range": true,
+          "refId": "B"
         }
       ],
       "title": "Peak usage of the Compressed Class Space memory pool",
@@ -3338,6 +3387,6 @@
   "timezone": "browser",
   "title": "KeyCloak Metrics",
   "uid": null,
-  "version": 7,
+  "version": 8,
   "weekStart": ""
 }
