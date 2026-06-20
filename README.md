@@ -19,8 +19,8 @@ Visualize the corresponding KeyCloak metrics from the selected Grafana data sour
 - Version 4: Adjust the dashboard to shrink down the Grafana dashboard file
 - Version 5: Adjust the dashboard data source variable name
 - Version 6: Adjust the dashboard name
-- Version 7: Migrate to Micrometer metrics for Keycloak 26+ (virtual threads / JDK 21)
-- Version 8: Add dual-query compatibility for Keycloak <26 and 26+ via PromQL `or` fallbacks
+- Version 7: Adapt the metrics and the descriptions
+- Version 8: Migrate to Micrometer metrics for Keycloak 26+ (virtual threads / JDK 21) && and add dual-query compatibility for Keycloak <26 and 26+ via PromQL `or` fallbacks
 
 ## Images
 

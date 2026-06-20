@@ -3387,6 +3387,6 @@
   "timezone": "browser",
   "title": "KeyCloak Metrics",
   "uid": null,
-  "version": 7,
+  "version": 8,
   "weekStart": ""
 }
